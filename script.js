@@ -1,4 +1,7 @@
+
+
 //Card constructor///
+
 
 function Card(suit, number) {
   var suit = suit;
@@ -181,9 +184,21 @@ function Hand (deck) {
 };
 };
 
+// $( "#dialogWin" ).dialog({
+//   modal: true;
+//   autoOpen: false;
+// })
+// $( "#dialogLose" ).dialog({
+//   modal: true;
+//   autoOpen: false;
+// });
+// $( "#dialogPush" ).dialog({
+//   modal: true;
+//   autoOpen: false;
+// });
+//
 
 //Play Functions
-
 var BlackJack = (function ($) {
   //Set up Deck
   var deck = new Deck();
@@ -201,21 +216,27 @@ var BlackJack = (function ($) {
       //Win Loss rules
       if (userScore === 21 && dealerScore < 21) {
           outcome = "You win!";
+          // $( "#dialogWin" ).dialog("open");
           wins++;
       } else if (userScore > 21 || dealerScore === 21) {
           outcome = "You lose!";
+          // $( "#dialogLose" ).dialog("open");
           losses++;
       }else if (dealerScore > 21 && userScore <=21) {
           outcome = "You win!";
+          // $( "#dialogWin" ).dialog("open");
           wins++;
       }else if (dealerScore > 21 || userScore > dealerScore) {
           outcome = "You win!";
+          // $( "#dialogWin" ).dialog("open");
           wins++;
       }else if (dealerScore > userScore) {
           outcome = "You lose!";
+          // $( "#dialogLose" ).dialog("open");
           losses++;
       }else if (dealerScore === userScore) {
-          outcome = "Push!"
+          outcome = "Push!";
+          // $( "#dialogPush" ).dialog("open");
       }
       //Output result of round
       return outcome+"<br />Dealer: "+dealerScore+"<br />You: "+userScore;
@@ -225,43 +246,24 @@ var BlackJack = (function ($) {
 //       if (outcome = "You win!") {
 //         $(document).ready(function(){
 //         $("#dialogWin").dialog();
+//         autoOpen: false;
 //         });
 //         }
 //       if (outcome = "You lose!") {
 //         $(document).ready(function(){
 //         $("#dialogLose").dialog();
+//         autoOpen: false;
 //         });
 //         }
 //       if (outcome = "Push!") {
 //         $(document).ready(function(){
 //         $("#dialogPush").dialog();
+//         autoOpen: false;
 //         });
 //         }
 //         };
-//
-//           $(function() {
-//           $( "#dialogWin" ).dialog({
-//           modal: true
-//           });
-//           });
-//
-//           $(function() {
-//           $( "#dialogLose" ).dialog({
-//           modal: true
-//           });
-//           });
-//
-//           $(function() {
-//           $( "#dialogPush" ).dialog({
-//           modal: true,
-//           buttons: {
-//           Ok: function() {
-//           $( this ).dialog( "close" );
-//           }
-//           }
-//           });
 //           outcome2();
-//           });
+//
 
 
 
